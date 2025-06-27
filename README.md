@@ -1,22 +1,29 @@
 # StokExtreWFDX
 
-Girilen parametrelere gore Sql database'den stok raporu ceken raporlama araci. Raporlar icin prosedurler kullanildi.
+# Gorevler
+Verilen Sql database'den istenilen stok raporu icin prosedurler olusturulmasi ve raporun bir arayuzde (Winforms) filtreleme/parametreler ile cekilip gosterilmesi.
+Raporda kaydetme, yazdirma vb. ozellikler.
+DB'de degisiklik istenmiyor, rapor girdi/cikti icin bazi hucrelerin formatlarinda conversion gerekli.
 
 # Teknolojiler
 .Net Winforms, MSSQL Server, DevExpress
 
-# Kullanim
+# Kullanim 
 Ilgili database connection string appconfig den belirtilir yada secrets kullanilabilir. 
-Farkli parametreler ve data kaynaklari icin VS de Devexpress rapor tasarimcisi ile rapor tasarlanabilir.
+Program acildiginda rapor ekrani otomatik acilir.
 
 # EN
 
-# StokExtreWFDX
-A reporting tool that retrieves stock reports from a SQL database based on the given parameters. Stored procedures were used for the reports.
+# StokExtreWFDX 
+
+# Tasks
+Creating stored procedures for the desired stock report from the given SQL database and displaying the report in a Winforms interface with filtering/parameters.
+The report includes features such as saving and printing.
+No changes are wanted in the database; some cell formats require conversion for input/output.
 
 # Technologies
 .Net Winforms, MSSQL Server, DevExpress
 
 # Usage
 The relevant database connection should be specified in the appconfig or secrets can be used.
-For different parameters and data sources, reports can be designed using the DevExpress report designer in Visual Studio.
+The report screen opens automatically when the program is opened.
