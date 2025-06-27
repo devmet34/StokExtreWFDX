@@ -31,11 +31,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DevExpress.DataAccess.ConnectionParameters.MsSqlConnectionParameters msSqlConnectionParameters1 = new DevExpress.DataAccess.ConnectionParameters.MsSqlConnectionParameters();
-            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery1 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            malkoduList = new DevExpress.DataAccess.Sql.SqlDataSource(components);
-            sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(components);
             documentViewer1 = new DevExpress.XtraPrinting.Preview.DocumentViewer();
             documentViewerBarManager1 = new DevExpress.XtraPrinting.Preview.DocumentViewerBarManager(components);
             previewBar1 = new DevExpress.XtraPrinting.Preview.PreviewBar();
@@ -112,27 +108,6 @@
             ((System.ComponentModel.ISupportInitialize)repositoryItemProgressBar1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)repositoryItemZoomTrackBar1).BeginInit();
             SuspendLayout();
-            // 
-            // malkoduList
-            // 
-            malkoduList.ConnectionName = "localhost_TestStok_Connection";
-            msSqlConnectionParameters1.AuthorizationType = DevExpress.DataAccess.ConnectionParameters.MsSqlAuthorizationType.SqlServer;
-            msSqlConnectionParameters1.DatabaseName = "TestStok";
-            msSqlConnectionParameters1.Encrypt = DevExpress.Utils.DefaultBoolean.True;
-            msSqlConnectionParameters1.Password = "user";
-            msSqlConnectionParameters1.ServerName = "localhost";
-            msSqlConnectionParameters1.TrustServerCertificate = DevExpress.Utils.DefaultBoolean.True;
-            msSqlConnectionParameters1.UserName = "user";
-            malkoduList.ConnectionParameters = msSqlConnectionParameters1;
-            malkoduList.Name = "malkoduList";
-            customSqlQuery1.Name = "Query";
-            customSqlQuery1.Sql = "select distinct malkodu from dbo.stk ";
-            malkoduList.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] { customSqlQuery1 });
-            malkoduList.ResultSchemaSerializable = "PERhdGFTZXQgTmFtZT0ibWFsa29kdUxpc3QiPjxWaWV3IE5hbWU9IlF1ZXJ5Ij48RmllbGQgTmFtZT0ibWFsa29kdSIgVHlwZT0iU3RyaW5nIiAvPjwvVmlldz48L0RhdGFTZXQ+";
-            // 
-            // sqlDataSource1
-            // 
-            sqlDataSource1.Name = "sqlDataSource1";
             // 
             // documentViewer1
             // 
@@ -837,8 +812,6 @@
         }
 
         #endregion
-        private DevExpress.DataAccess.Sql.SqlDataSource malkoduList;
-        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
         private DevExpress.XtraPrinting.Preview.DocumentViewer documentViewer1;
         private DevExpress.XtraPrinting.Preview.DocumentViewerBarManager documentViewerBarManager1;
         private DevExpress.XtraPrinting.Preview.PreviewBar previewBar1;

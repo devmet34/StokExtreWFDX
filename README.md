@@ -1,6 +1,6 @@
 # StokExtreWFDX
 
-Girilen parametrelere gore Sql databaseden stok raporu ceken raporlama araci.
+Girilen parametrelere gore Sql database'den stok raporu ceken raporlama araci. Raporlar icin prosedurler kullanildi.
 
 # Teknolojiler
 .Net Winforms, MSSQL Server, DevExpress
@@ -12,7 +12,7 @@ Farkli parametreler ve data kaynaklari icin VS de Devexpress rapor tasarimcisi i
 # EN
 
 # StokExtreWFDX
-A reporting tool that retrieves stock reports from a SQL database based on the given parameters.
+A reporting tool that retrieves stock reports from a SQL database based on the given parameters. Stored procedures were used for the reports.
 
 # Technologies
 .Net Winforms, MSSQL Server, DevExpress

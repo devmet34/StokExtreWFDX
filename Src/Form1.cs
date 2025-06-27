@@ -1,7 +1,4 @@
-﻿using System;
-
-
-namespace StokExtreWFDX
+﻿namespace StokExtreWFDX
 {
     public partial class Form1 : DevExpress.XtraEditors.XtraForm
     {
@@ -11,15 +8,6 @@ namespace StokExtreWFDX
 
             documentViewer1.DocumentSource = new ReportFactory().CreateReport();
 
-
-
-            //report.ShowPreview();
-
-        }
-
-
-        private void dropDownButton1_Click(object sender, EventArgs e)
-        {
 
         }
 
