@@ -29,13 +29,14 @@ partial class Report2:IDxReport
     private void InitializeComponent()
     {
             this.components = new System.ComponentModel.Container();
+            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery1 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
             DevExpress.XtraReports.Parameters.DynamicListLookUpSettings dynamicListLookUpSettings1 = new DevExpress.XtraReports.Parameters.DynamicListLookUpSettings();
             DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery1 = new DevExpress.DataAccess.Sql.StoredProcQuery();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter1 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter2 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter3 = new DevExpress.DataAccess.Sql.QueryParameter();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Report2));
-            DevExpress.DataAccess.Sql.CustomSqlQuery customSqlQuery1 = new DevExpress.DataAccess.Sql.CustomSqlQuery();
+            this.sqlDataSource3 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.malKodu = new DevExpress.XtraReports.Parameters.Parameter();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
@@ -73,14 +74,24 @@ partial class Report2:IDxReport
             this.bitis = new DevExpress.XtraReports.Parameters.Parameter();
             this.baslangicInt = new DevExpress.XtraReports.Parameters.Parameter();
             this.bitisInt = new DevExpress.XtraReports.Parameters.Parameter();
-            this.sqlDataSource3 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
+            // sqlDataSource3
+            // 
+            this.sqlDataSource3.ConnectionName = "TestStokConnection";
+            this.sqlDataSource3.Name = "sqlDataSource3";
+            customSqlQuery1.Name = "STK";
+            customSqlQuery1.Sql = "select distinct \"STK\".\"MalKodu\"\r\n  from \"dbo\".\"STK\" \"STK\"";
+            this.sqlDataSource3.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            customSqlQuery1});
+            this.sqlDataSource3.ResultSchemaSerializable = "PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTMiPjxWaWV3IE5hbWU9IlNUSyI+PEZpZWxkIE5hbWU9I" +
+    "k1hbEtvZHUiIFR5cGU9IlN0cmluZyIgLz48L1ZpZXc+PC9EYXRhU2V0Pg==";
+            // 
             // malKodu
             // 
-            this.malKodu.Description = "malkod";
+            this.malKodu.Description = "Malkodu";
             this.malKodu.Name = "malKodu";
             dynamicListLookUpSettings1.DataMember = "STK";
             dynamicListLookUpSettings1.DataSource = this.sqlDataSource3;
@@ -429,17 +440,6 @@ partial class Report2:IDxReport
             this.bitisInt.Type = typeof(int);
             this.bitisInt.ValueInfo = "0";
             this.bitisInt.Visible = false;
-            // 
-            // sqlDataSource3
-            // 
-            this.sqlDataSource3.ConnectionName = "TestStokConnection";
-            this.sqlDataSource3.Name = "sqlDataSource3";
-            customSqlQuery1.Name = "STK";
-            customSqlQuery1.Sql = "select distinct \"STK\".\"MalKodu\"\r\n  from \"dbo\".\"STK\" \"STK\"";
-            this.sqlDataSource3.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            customSqlQuery1});
-            this.sqlDataSource3.ResultSchemaSerializable = "PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTMiPjxWaWV3IE5hbWU9IlNUSyI+PEZpZWxkIE5hbWU9I" +
-    "k1hbEtvZHUiIFR5cGU9IlN0cmluZyIgLz48L1ZpZXc+PC9EYXRhU2V0Pg==";
             // 
             // Report2
             // 
