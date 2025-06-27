@@ -1,0 +1,22 @@
+﻿USE [TestStok]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_StokEkstresi]    Script Date: 25/06/2025 23:08:09 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE proc [dbo].[sp_StokEkstresi] 
+(@malKodu varchar(30), @basTarih int, @bitTarih int ) 
+as
+
+with cte as (
+select ROW_NUMBER() over(order by tarih,id) Sira, IslemTur,EvrakNo,Tarih,case when IslemTur=0 then Miktar else 0 end as Giris,
+case when IslemTur=1 then Miktar else 0 end as Cikis from STI
+where MalKodu=@malKodu and Tarih>=@basTarih and Tarih <=@bitTarih
+
+)
+
+select Sira,IslemTur,EvrakNo, CONVERT(date, cast(tarih as datetime)) Tarih, Giris, Cikis, sum(Giris+(-Cikis)) over (order by tarih, sira) 
+Stok from cte 
+order by Tarih,sira asc

@@ -1,0 +1,39 @@
+﻿USE [TestStok]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_StokEkstresiCursor]    Script Date: 27/06/2025 09:55:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+Create proc [dbo].[sp_StokEkstresiCursor]
+( @malKodu varchar(30), @basTarih int, @bitTarih int)
+as
+
+
+select * into #temp from
+(select ROW_NUMBER() over(order by tarih,id) Sira, IslemTur,EvrakNo,Tarih,case when IslemTur=0 then Miktar else 0 end as Giris,
+case when IslemTur=1 then Miktar else 0 end as Cikis, 0 as Stok from STI
+where MalKodu=@malKodu and Tarih>=@basTarih and Tarih <=@bitTarih) s
+
+
+DECLARE @sira int, @stok numeric(25,6), @giris numeric(25,6), @cikis numeric(25,6);
+SET @stok = 0;
+
+DECLARE c CURSOR LOCAL STATIC READ_ONLY FORWARD_ONLY
+  FOR SELECT Sira, giris,cikis FROM #temp ORDER BY Tarih,sira;
+
+OPEN c;
+
+FETCH c INTO @sira, @giris, @cikis;
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+  SET @stok = @stok + @giris -@cikis;
+  UPDATE #temp SET Stok = @stok WHERE Sira = @sira;
+ FETCH c INTO @sira, @giris, @cikis;
+END
+
+CLOSE c; DEALLOCATE c;
+
+select Sira,IslemTur,EvrakNo, CONVERT(date, cast(tarih as datetime)) Tarih, Giris, Cikis,Stok from #temp
